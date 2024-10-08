@@ -1,50 +1,52 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 class="text-5xl mb-6">👨‍💻 Welcome, Fellow Explorer!</h1>
+      <p>
+        I’m Thinesh Rasla, a self-taught developer, an Arch Linux user (btw 😎),
+        and a die-hard Linux enthusiast. My coding journey didn’t start in the
+        most conventional way—oh no! It all began in a small village, where the
+        only magic stronger than code was my love for ~My Girl, the most
+        beautiful girl in all the land.
+      </p>
+      <p>
+        One day, armed with nothing but a broken laptop and a will as strong as
+        steel, I set off on a quest to conquer the world of programming.
+        Late-night battles with bugs, infinite cups of coffee, and the ancient
+        scrolls of StackOverflow became my companions. Over time, I mastered the
+        arcane arts of web and mobile development, taming the wild beasts of
+        JavaScript and slaying the dragons of Flutter.
+      </p>
+      <p>
+        As you explore my blog, you'll find snippets from my coding adventures,
+        tips on navigating the vast lands of open-source, and maybe even a few
+        tales of how I built my empire from scratch—one line of code at a time.
+      </p>
+      <p>
+        Whether you’re a fellow adventurer on your coding journey, a Linux fan,
+        or just a curious traveler passing by, you’re always welcome here. Grab
+        a virtual cup of coffee, and let's dive into the world of tech and
+        creativity together.
+      </p>
+
+      <p>
+        Oh, and one last thing... I’m always happy to share a tale or two about
+        My Girl, the love of my life, who keeps me grounded through every
+        adventure. ❤️
+      </p>
+    </main>
+    <Footer />
+  </body>
 </html>
