@@ -1,0 +1,40 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Topbar from "../components/Topbar.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-black text-gray-100 font-sans w-[600px] mx-auto">
+    <main>
+      <Topbar />
+
+      <div class="mt-12 flex items-start gap-6">
+        <div class="flex-shrink-0">
+          <img
+            src="https://avatars.githubusercontent.com/u/76244740?v=4"
+            alt="Thinesh Rasla"
+            class="rounded-full w-24 h-24 object-cover shadow-lg"
+          />
+        </div>
+        <div class="flex-grow">
+          <h1 class="text-3xl font-bold mb-2 flex items-center">
+            Thinesh Rasla
+            <span
+              class="ml-2 cursor-default transition-transform duration-300 hover:animate-wavehand hover:cursor-grabbing"
+              >👋</span
+            >
+          </h1>
+          <p class="text-lg text-gray-300">
+            Software Engineer from India. I write about my experiences in the
+            world of software development and technology.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
