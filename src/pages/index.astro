@@ -1,50 +1,69 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
-<!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-white">
+    <Header />
+    <main class="max-w-4xl mx-auto px-4 py-16 pt-28">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          Hi, I'm Thinesh Rasla 👋
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          A passionate developer who loves Linux, coding, and exploring new
+          technologies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="p-6 rounded-lg bg-gray-50 border border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            About Me
+          </h2>
+          <p class="text-gray-600">
+            I'm a tech enthusiast who's deeply passionate about the world of
+            computing. My journey in technology is driven by curiosity and a
+            constant desire to learn and grow in this ever-evolving field.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-lg bg-gray-50 border border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            What I Love
+          </h2>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center">
+              <span class="mr-2">🐧</span> Linux and Open Source
+            </li>
+            <li class="flex items-center">
+              <span class="mr-2">💻</span> Coding and Problem Solving
+            </li>
+            <li class="flex items-center">
+              <span class="mr-2">🔍</span> Exploring New Technologies
+            </li>
+            <li class="flex items-center">
+              <span class="mr-2">🌱</span> Continuous Learning
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a
+          href="/blog"
+          class="inline-block bg-gray-900 hover:bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+        >
+          Read My Blog
+        </a>
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>
