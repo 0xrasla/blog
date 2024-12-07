@@ -27,7 +27,7 @@ const posts = (await getCollection("blog")).sort(
 
       <div class="grid gap-8">
         {
-          posts.map((post) => (
+          posts.map((post: any) => (
             <article class="group relative bg-gray-50 border border-gray-200 rounded-lg p-6 transition-all hover:shadow-md">
               <a href={`/blog/${post.slug}/`} class="block">
                 {post.data.heroImage && (
@@ -41,7 +41,7 @@ const posts = (await getCollection("blog")).sort(
                   <FormattedDate date={post.data.pubDate} />
                   {post.data.tags && (
                     <div class="flex gap-2">
-                      {post.data.tags.map((tag) => (
+                      {post.data.tags.map((tag: string) => (
                         <span class="bg-gray-100 px-2 py-1 rounded">{tag}</span>
                       ))}
                     </div>

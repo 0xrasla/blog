@@ -3,7 +3,48 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import "../styles/global.css";
+
+const projects = [
+  {
+    name: "Portfolio",
+    description:
+      "A personal portfolio website built with Astro and Tailwind CSS.",
+    tech: "Astro, Tailwind CSS",
+    projectUrl: "https://github.com/ThineshRasla/portfolio",
+  },
+  {
+    name: "Blog",
+    description: "A blog website built with Astro and Tailwind CSS.",
+    tech: "Astro, Tailwind CSS",
+    projectUrl: "https://github.com/ThineshRasla/blog",
+  },
+];
 ---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
 
 <html lang="en">
   <head>
@@ -22,38 +63,109 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <div class="p-6 rounded-lg bg-gray-50 border border-gray-200">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">
-            About Me
-          </h2>
-          <p class="text-gray-600">
-            I'm a tech enthusiast who's deeply passionate about the world of
-            computing. My journey in technology is driven by curiosity and a
-            constant desire to learn and grow in this ever-evolving field.
+      <section class="mb-16 relative">
+        <div class="relative">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Tech Skills</h2>
+          <div class="flex flex-wrap gap-4 justify-center">
+            {
+              [
+                "TypeScript",
+                "React",
+                "Next.js",
+                "Tailwind",
+                "Node.js",
+                "Python",
+                "Docker",
+                "Bun",
+              ].map((tech) => (
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-gray-700">
+                  {tech}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">
+          My Cosmic Journey 🚀✨
+        </h2>
+        <div class="prose prose-lg">
+          <p class="text-gray-600 mb-6">
+            My fascination with technology began light-years ago, on a tiny, twinkling planet 🌌 hidden among the stars. As a young stargazer, I was captivated by the mysterious hum of alien gadgets and the glowing circuits of ancient celestial devices. 🛸
+          </p>
+          <p class="text-gray-600 mb-6">
+            Driven by an insatiable curiosity, I spent my early days reverse-engineering space tech 🛠️—decoding starlight scripts and experimenting with zero-gravity algorithms. Every new discovery was like unlocking a hidden galaxy within myself. 🌠
+          </p>
+          <p class="text-gray-600 mb-6">
+            As my skills grew, I ventured into uncharted dimensions of the coding cosmos 🌌. I harnessed the power of magical open-source constellations, danced with the clouds ☁️ of computation, and forged scalable starships 🚀 capable of exploring infinite possibilities.
+          </p>
+          <p class="text-gray-600 mb-6">
+            Today, my mission is clear: to build enchanted technologies that empower and inspire. Whether crafting nebula-scale solutions or wielding the power of celestial logic ✨, I believe that the best way to shape the universe is to code its future, one starlit line at a time. 🌟
           </p>
         </div>
+      </section>
 
-        <div class="p-6 rounded-lg bg-gray-50 border border-gray-200">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">
-            What I Love
+      <section class="mb-16 relative">
+        <div class="relative">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+            Tech Skills
           </h2>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center">
-              <span class="mr-2">🐧</span> Linux and Open Source
-            </li>
-            <li class="flex items-center">
-              <span class="mr-2">💻</span> Coding and Problem Solving
-            </li>
-            <li class="flex items-center">
-              <span class="mr-2">🔍</span> Exploring New Technologies
-            </li>
-            <li class="flex items-center">
-              <span class="mr-2">🌱</span> Continuous Learning
-            </li>
-          </ul>
+          <div class="grid md:grid-cols-2 gap-6">
+            {[
+              { name: "TypeScript", level: 90 },
+              { name: "React", level: 85 },
+              { name: "Node.js", level: 88 },
+              { name: "Linux", level: 92 },
+              { name: "Docker", level: 80 },
+              { name: "Python", level: 75 },
+              { name: "Git", level: 85 },
+              { name: "AWS", level: 70 },
+            ].map((tech) => (
+              <div class="bg-gray-100 p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  {tech.name}
+                </h3>
+                <div class="h-2 bg-gray-300 rounded-full overflow-hidden">
+                  <div
+                    class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                    style={`width: ${tech.level}%`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section class="mb-16 relative">
+        <div class="relative">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Projects</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            {
+              projects.map((project) => (
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                    {project.name}
+                  </h3>
+                  <p class="text-gray-600 mb-2">{project.tech}</p>
+                  <p class="text-gray-700 mb-4">{project.description}</p>
+                  {project.projectUrl && (
+                    <a
+                      href={project.projectUrl}
+                      target="_blank"
+                      class="text-blue-600 hover:underline"
+                    >
+                      View Project
+                    </a>
+                  )}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
 
       <div class="text-center">
         <a
